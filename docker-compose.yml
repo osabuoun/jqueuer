@@ -47,7 +47,7 @@ services:
     jqueuing_manager:
         image: osabuoun/jqueuing_manager
         volumes:
-            - .:/qmanager
+            - ./data/jqueuing_manager/:/data
             - /usr/bin/docker:/usr/bin/docker
             - /var/run/docker.sock:/var/run/docker.sock
         links:
@@ -62,7 +62,7 @@ services:
     experiment_manager:
         image: osabuoun/experiment_manager
         volumes:
-            - .:/experiment_manager
+            - ./data/experiment_manager/:/data
         links:
             - redis
         depends_on:
