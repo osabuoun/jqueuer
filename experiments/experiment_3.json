@@ -1,0 +1,21 @@
+{ 
+	"service_name"	: "customer_app1",
+	"params"		: [],
+	"command" 		: [] ,
+	"jobs":
+	{
+		"id"			: "job_id_1" ,
+		"service_name"	: "customer_app1",
+		"params"		: [],
+		"command" 		: [] ,
+		"count"			: 100, 
+		"tasks"			: 
+		{
+			"id"		: "task_id_1" ,
+			"command"	: ["python3","app.py"],
+			"data"		: {"id":"id_1", "misc":["127.0.0.254"]},
+			"count" 	: 10,
+		},
+		
+	},
+}

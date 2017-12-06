@@ -1,0 +1,32 @@
+{ 
+	"service_name"	:"customer_app2",
+	"params"		: [] ,
+	"command" 		: [] ,
+	"data"			: {} ,
+	"jobs":
+	{
+		"id"			: "job_id_3" ,
+		"service_name"	: "customer_app2",
+		"params"		: [] ,
+		"command" 		: [] ,
+		"data"			: {} ,
+		"count"			: 4, 
+		"tasks"			: [
+			{
+				"id"		: "task_id_20" ,
+				"command"	: ["python3","app.py"],
+				"data"		: {"id":"id_201", "misc":["127.0.0.150"]}
+			},
+			{
+				"id"		: "task_id_21" ,
+				"command"	: ["python3","app.py"],
+				"data"		: {"id":"id_202", "misc":["127.0.0.151"]}
+			},
+			{
+				"id"		: "task_id_22" ,
+				"command"	: ["python3","app.py"],
+				"data"		: {"id":"id_203", "misc":["127.0.0.152"]}
+			},
+		]
+	},
+}
