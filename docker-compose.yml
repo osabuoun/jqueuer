@@ -9,6 +9,9 @@ services:
         expose:
             - 9125
             - 9102
+        ports:
+            - 9125:9125
+            - 3102:9102
     
     prometheus:
         image: prom/prometheus
@@ -45,8 +48,8 @@ services:
             - "5673:5672"
 
     jqueuing_manager:
-        #image: osabuoun/jqueuing_manager
-        image: jqueuing_manager
+        image: osabuoun/jqueuing_manager
+        #image: jqueuing_manager
         volumes:
             - ./data/jqueuing_manager/:/data
             - /usr/bin/docker:/usr/bin/docker
@@ -61,8 +64,8 @@ services:
             - "5599:5599"
 
     experiment_manager:
-        #image: osabuoun/experiment_manager
-        image: experiment_manager
+        image: osabuoun/experiment_manager
+        #image: experiment_manager
         volumes:
             - ./data/experiment_manager/:/data
         links:
