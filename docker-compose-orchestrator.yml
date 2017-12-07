@@ -27,3 +27,11 @@ services:
             - RABBITMQ_DEFAULT_PASS=mypass
         ports:
             - "5672:5672"
+
+    experiment_manager:
+        image: osabuoun/experiment_manager
+        #image: experiment_manager
+        volumes:
+            - ./data/experiment_manager/:/data
+        ports:
+            - "8778:8777"
