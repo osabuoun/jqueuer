@@ -4,7 +4,6 @@ services:
         image: osabuoun/jqueuing_manager
         #image: jqueuing_manager
         volumes:
-            - ./data/jqueuing_manager/:/data
             - /usr/bin/docker:/usr/bin/docker
             - /var/run/docker.sock:/var/run/docker.sock
 
