@@ -32,4 +32,4 @@ services:
         image: osabuoun/experiment_manager
         #image: experiment_manager
         ports:
-            - "8778:8777"
+            - "8777:8777"
