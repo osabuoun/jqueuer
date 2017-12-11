@@ -9,7 +9,9 @@ services:
         image: prom/statsd-exporter
         ports:
             - 9125:9125
+            - 9125:9125/udp
             - 9102:9102
+            - 9102:9102/udp
 
     grafana:
         image: grafana/grafana

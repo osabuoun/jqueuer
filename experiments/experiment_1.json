@@ -9,7 +9,7 @@
 			"service_name"	:"customer_app1",
 			"params"		: [],
 			"command" 		: [] ,
-			"data"			: {"id":"id_1", "misc":["127.0.0.252"]},
+			"data"			: {},
 			"tasks"			: [
 				{
 					"id"		: "task_id_1" ,
@@ -27,19 +27,6 @@
 					"data"		: {"id":"id_3", "misc":["127.0.0.254"]}
 				},
 			]
-		},
-		{
-			"id"			: "job_id_2" ,
-			"service_name"	:"customer_app1",
-			"params"		: [],
-			"command" 		: [] ,
-			"tasks"			: 
-			{
-				"id"		: "task_id_10" ,
-				"command"	: ["python3","app.py"],
-				"data"		: {"id":"id_4", "misc":["127.0.0.255"]},
-				"count" 	: 10,
-			},
 		},
 	]
 }
