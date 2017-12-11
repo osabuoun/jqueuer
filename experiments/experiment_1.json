@@ -9,6 +9,7 @@
 			"service_name"	:"customer_app1",
 			"params"		: [],
 			"command" 		: [] ,
+			"data"			: {"id":"id_1", "misc":["127.0.0.252"]},
 			"tasks"			: [
 				{
 					"id"		: "task_id_1" ,
