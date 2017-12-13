@@ -3,7 +3,7 @@ services:
     redis:
         image: "redis:alpine"
         ports:
-            - 16379:6379
+            - 6379:6379
         networks:
             jef_net:
                 ipv4_address: "172.31.1.2"
@@ -37,7 +37,7 @@ services:
             - RABBITMQ_DEFAULT_USER=admin
             - RABBITMQ_DEFAULT_PASS=mypass
         ports:
-            - "5673:5672"
+            - "5672:5672"
         networks:
             jef_net:
                 ipv4_address: "172.31.1.6"
