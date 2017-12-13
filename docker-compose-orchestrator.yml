@@ -5,8 +5,7 @@ services:
         ports:
             - 6379:6379
         networks:
-            jef_net:
-                ipv4_address: "172.31.1.2"
+            jef-network:
 
     stastd:
         image: prom/statsd-exporter
@@ -16,8 +15,7 @@ services:
             - 9102:9102
             - 9102:9102/udp
         networks:
-            jef_net:
-                ipv4_address: "172.31.1.4"
+            jef-network:
 
     grafana:
         image: grafana/grafana
@@ -27,8 +25,7 @@ services:
             - GF_SECURITY_ADMIN_PASSWORD=foobar
             - GF_USERS_ALLOW_SIGN_UP=false
         networks:
-            jef_net:
-                ipv4_address: "172.31.1.5"
+            jef-network:
 
     rabbit:
         hostname: rabbit
@@ -39,8 +36,7 @@ services:
         ports:
             - "5672:5672"
         networks:
-            jef_net:
-                ipv4_address: "172.31.1.6"
+            jef-network:
 
     prometheus:
         image: prom/prometheus
@@ -51,8 +47,7 @@ services:
         ports:
             - 19090:9090
         networks:
-            jef_net:
-                ipv4_address: "172.31.1.7"
+            jef-network:
 
     experiment_manager:
         image: osabuoun/experiment_manager
@@ -60,16 +55,7 @@ services:
         ports:
             - "8777:8777"
         networks:
-            jef_net:
-                ipv4_address: "172.31.1.8"
+            jef-network:
 networks:
-    jef_net:
-        # use the bridge driver, but enable IPv6
-        driver: bridge
-        driver_opts:
-            com.docker.network.enable_ipv6: "true"
-        ipam:
-            driver: default
-            config:
-            - subnet: "172.31.1.0/24"
-              gateway: "172.31.1.1"
+    jef-network:
+        external: true     
