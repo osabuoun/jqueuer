@@ -1,9 +1,12 @@
-version: '3'
+version: '2'
 services:
     redis:
         image: "redis:alpine"
         ports:
             - 16379:6379
+        networks:
+            jef_net:
+                ipv4_address: "172.31.1.2"
 
     stastd:
         image: prom/statsd-exporter
@@ -12,6 +15,9 @@ services:
             - 9125:9125/udp
             - 9102:9102
             - 9102:9102/udp
+        networks:
+            jef_net:
+                ipv4_address: "172.31.1.4"
 
     grafana:
         image: grafana/grafana
@@ -20,6 +26,9 @@ services:
         environment:
             - GF_SECURITY_ADMIN_PASSWORD=foobar
             - GF_USERS_ALLOW_SIGN_UP=false
+        networks:
+            jef_net:
+                ipv4_address: "172.31.1.5"
 
     rabbit:
         hostname: rabbit
@@ -28,7 +37,10 @@ services:
             - RABBITMQ_DEFAULT_USER=admin
             - RABBITMQ_DEFAULT_PASS=mypass
         ports:
-            - "5672:5672"
+            - "5673:5672"
+        networks:
+            jef_net:
+                ipv4_address: "172.31.1.6"
 
     prometheus:
         image: prom/prometheus
@@ -38,9 +50,26 @@ services:
             - '--config.file=/etc/prometheus/prometheus.yml'
         ports:
             - 19090:9090
+        networks:
+            jef_net:
+                ipv4_address: "172.31.1.7"
 
     experiment_manager:
         image: osabuoun/experiment_manager
         #image: experiment_manager
         ports:
             - "8777:8777"
+        networks:
+            jef_net:
+                ipv4_address: "172.31.1.8"
+networks:
+    jef_net:
+        # use the bridge driver, but enable IPv6
+        driver: bridge
+        driver_opts:
+            com.docker.network.enable_ipv6: "true"
+        ipam:
+            driver: default
+            config:
+            - subnet: "172.31.1.0/24"
+              gateway: "172.31.1.1"
