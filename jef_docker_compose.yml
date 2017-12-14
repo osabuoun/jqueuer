@@ -5,9 +5,9 @@ services:
         ports:
             - 6379:6379
         networks:
-            jef-network:
+            jef_network:
 
-    stastd:
+    statsd:
         image: prom/statsd-exporter
         ports:
             - 9125:9125
@@ -15,7 +15,7 @@ services:
             - 9102:9102
             - 9102:9102/udp
         networks:
-            jef-network:
+            jef_network:
 
     grafana:
         image: grafana/grafana
@@ -25,7 +25,7 @@ services:
             - GF_SECURITY_ADMIN_PASSWORD=foobar
             - GF_USERS_ALLOW_SIGN_UP=false
         networks:
-            jef-network:
+            jef_network:
 
     rabbit:
         hostname: rabbit
@@ -36,7 +36,7 @@ services:
         ports:
             - "5672:5672"
         networks:
-            jef-network:
+            jef_network:
 
     prometheus:
         image: prom/prometheus
@@ -47,7 +47,7 @@ services:
         ports:
             - 19090:9090
         networks:
-            jef-network:
+            jef_network:
 
     experiment_manager:
         image: osabuoun/experiment_manager
@@ -55,7 +55,7 @@ services:
         ports:
             - "8777:8777"
         networks:
-            jef-network:
+            jef_network:
 networks:
-    jef-network:
+    jef_network:
         external: true     
