@@ -46,8 +46,8 @@ services:
         networks:
             jef_network:
         volumes:
-            - ./flowerconfig.py:/opt/celery-flower/flowerconfig.py
-            
+            - /flowerconfig.py:/opt/celery-flower/flowerconfig.py
+
     experiment_manager:
         image: osabuoun/experiment_manager
         #image: experiment_manager
