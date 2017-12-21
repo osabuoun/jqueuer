@@ -47,8 +47,8 @@ services:
             jef_network:
 
     experiment_manager:
-        #image: osabuoun/experiment_manager
-        image: experiment_manager
+        image: osabuoun/experiment_manager
+        #image: experiment_manager
         ports:
             - "8777:8777"
         networks:
