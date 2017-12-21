@@ -42,10 +42,12 @@ services:
         hostname: flower
         image: totem/celery-flower-docker
         ports:
-            - "5555:5555"
+            - "8080:5555"
         networks:
             jef_network:
-
+        volumes:
+            - ./flowerconfig.py:/opt/celery-flower/flowerconfig.py
+            
     experiment_manager:
         image: osabuoun/experiment_manager
         #image: experiment_manager
