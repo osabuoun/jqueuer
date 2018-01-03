@@ -7,9 +7,6 @@ services:
     stastd:
         image: prom/statsd-exporter
         container_name: statsd
-        expose:
-            - 9125
-            - 9102
         ports:
             - 9125:9125
             - 3102:9102
@@ -22,10 +19,8 @@ services:
         command:
             - '--config.file=/etc/prometheus/prometheus.yml'
             - '--storage.tsdb.path=/prometheus'
-        expose:
-            - 9090
         ports:
-            - 9090:9090
+            - 9091:9090
 
     grafana:
         image: grafana/grafana
@@ -73,7 +68,5 @@ services:
             - redis
         depends_on:
             - redis
-        expose:
-            - 8777
         ports:
             - "8777:8777"
